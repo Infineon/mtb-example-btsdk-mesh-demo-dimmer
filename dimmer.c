@@ -35,7 +35,7 @@
  *
  * This demo application shows a simple dimmer implementation using WICED EVK.
  * The app is based on the snip/mesh/mesh_level_client which implements
- * BLE Mesh Generic Level Client model.
+ * LE Mesh Generic Level Client model.
  * Normally a dimmer has at least 2 buttons to turn the light on and off.
  * This application performs dimming using a single button available on the
  * EVK.  On a short push, the level is toggled between 0% and 100%.
@@ -51,7 +51,7 @@
  *
  * Features demonstrated
  *  - Button usage on the EVK
- *  - Controlling of a BLE light bulb using BLE Mesh Set Level messages
+ *  - Controlling of a LE light bulb using LE Mesh Set Level messages
  *
  * To demonstrate the app, work through the following steps.
  * 1. Build and download the application (to the WICED board)
@@ -94,7 +94,6 @@ extern wiced_bt_cfg_settings_t wiced_bt_cfg_settings;
  ******************************************************/
 #define MESH_PID                0x3005
 #define MESH_VID                0x0002
-#define MESH_CACHE_REPLAY_SIZE  0x0008
 
 /******************************************************
  *          Structures
@@ -147,7 +146,6 @@ wiced_bt_mesh_core_config_t  mesh_config =
     .company_id         = MESH_COMPANY_ID_CYPRESS,                  // Company identifier assigned by the Bluetooth SIG
     .product_id         = MESH_PID,                                 // Vendor-assigned product identifier
     .vendor_id          = MESH_VID,                                 // Vendor-assigned product version identifier
-    .replay_cache_size  = MESH_CACHE_REPLAY_SIZE,                   // Number of replay protection entries, i.e. maximum number of mesh devices that can send application messages to this device.
 #if defined(LOW_POWER_NODE) && (LOW_POWER_NODE == 1)
     .features           = WICED_BT_MESH_CORE_FEATURE_BIT_LOW_POWER, // A bit field indicating the device features. In Low Power mode no Relay, no Proxy and no Friend
     .friend_cfg         =                                           // Empty Configuration of the Friend Feature
